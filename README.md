@@ -1,6 +1,6 @@
 This repository contains a simple example of a Typescript React frontend with Kotlin Spring Boot backend. It completes the following challenge: 
 
-> ## Blockquoted header
+>
 >
 > A customer receives 2 points for every dollar spent over $100 in each transaction, plus 1 point for every dollar spent over $50 in each transaction
 >
