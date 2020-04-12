@@ -4,9 +4,9 @@ import { Transaction } from '../model/Transaction';
 
 const dateFormat = 'YYYY-MM-DD';
 
-export const postNewTransaction = (rawTransaction: { date: moment.Moment; amount: number }) => {
+export const postNewTransactionByUserId = (userId: string, rawTransaction: { date: moment.Moment; amount: number }) => {
     return axios
-        .post<UnsanitizedTransaction[]>('/transaction', {
+        .post<UnsanitizedTransaction[]>(`/transaction/${userId}`, {
             date: rawTransaction.date.format(dateFormat),
             amount: rawTransaction.amount
         })
@@ -15,8 +15,8 @@ export const postNewTransaction = (rawTransaction: { date: moment.Moment; amount
         });
 };
 
-export const retrieveTransactions = (): Promise<Transaction[]> => {
-    return axios.get<UnsanitizedTransaction[]>('/transactions').then((response) => {
+export const retrieveTransactionsByUserId = (userId: string): Promise<Transaction[]> => {
+    return axios.get<UnsanitizedTransaction[]>(`/transactions/${userId}`).then((response) => {
         return sanitizeTransactions(response.data);
     });
 };

@@ -1,5 +1,5 @@
 import axios from 'axios';
 
-export const retrieveRewardPoints = (): Promise<number> => {
-    return axios.get<number>('/reward-points').then((response) => response.data);
+export const retrieveRewardPointsByUserId = (userId: string): Promise<number> => {
+    return axios.get<number>(`/reward-points/${userId}`).then((response) => response.data);
 };

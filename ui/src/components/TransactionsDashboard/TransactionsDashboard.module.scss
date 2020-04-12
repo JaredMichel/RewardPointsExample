@@ -1,0 +1,50 @@
+.transactionsDashboard {
+  display: grid;
+  grid-template-columns: 1fr 300px 1fr;
+  grid-template-rows: auto;
+  grid-column-gap: 48px;
+  margin-top: 24px;
+
+  .left, .center, .right {
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+  }
+
+  .left {
+    justify-self: end;
+    align-items: flex-end;
+
+    h5, button {
+      margin-top: 24px;
+    }
+  }
+
+  .center {
+    h2 {
+      text-align: center;
+    }
+
+    .transactionTable {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      grid-column-gap: 18px;
+    }
+  }
+
+  .right {
+    justify-self: start;
+    text-align: start;
+
+    .rewardsTable {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      grid-column-gap: 18px;
+      align-items: center;
+
+      h3 {
+        margin: 4px 0;
+      }
+    }
+  }
+}

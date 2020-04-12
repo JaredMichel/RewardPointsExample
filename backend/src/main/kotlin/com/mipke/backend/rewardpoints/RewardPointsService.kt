@@ -3,16 +3,18 @@ package com.mipke.backend.rewardpoints
 import com.mipke.backend.common.ServiceCoordinatorConsumer
 import com.mipke.backend.transactions.model.TransactionEntity
 import org.springframework.stereotype.Service
+import java.util.concurrent.ConcurrentHashMap
 
 @Service
 class RewardPointsService(): ServiceCoordinatorConsumer() {
 
-    private var rewardPointCount: Int = 0
+    private val rewardPointCountMap = ConcurrentHashMap<String, Int>()
 
-    fun getCurrentRewardPointCount(): Int = rewardPointCount
+    fun getCurrentRewardPointCountByUserId(userId: String): Int = rewardPointCountMap[userId] ?: 0
 
-    fun processNewTransaction(transactionEntity: TransactionEntity) {
-        rewardPointCount += transactionEntity.computeRewardPointForTransaction()
+    fun processNewTransaction(userId: String, transactionEntity: TransactionEntity) {
+        val currentPointsForUser = rewardPointCountMap[userId] ?: 0
+        rewardPointCountMap[userId] = currentPointsForUser + transactionEntity.computeRewardPointForTransaction()
     }
 
     private fun TransactionEntity.computeRewardPointForTransaction(): Int {
