@@ -9,4 +9,4 @@ This repository contains a simple example of a Typescript React frontend with a 
 The backend stores transactions in an in-memory list and maintains a running total of total reward points earned. A set of fake transactions is initialized when the backend first starts up.
 The frontend displays current transactions and accepts input of new transaction.
 
-The backend can be started like any other Spring Boot project, and the frontend can be started like any other React project with a 'yarn start'
+The backend can be started like any other Spring Boot project, and the frontend can be started like any other React project with a 'yarn start' and proxies its network calls to the backend runnning on port 8080
