@@ -1,4 +1,4 @@
-This repository contains a simple example of a Typescript React frontend with Kotlin Spring Boot backend. It completes the following challenge: 
+This repository contains a simple example of a Typescript React frontend with a Kotlin Spring Boot backend. It completes the following challenge: 
 
 >
 >
