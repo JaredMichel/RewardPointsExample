@@ -7,7 +7,7 @@ This repository contains a simple example of a Typescript React frontend with a 
 > Given a record of every transaction during a three month period, calculate the reward points earned for each customer per month and total.
 
 The backend stores transactions in an in-memory list and maintains a running total of total reward points earned. The transactions and points are tracked by user, and a set of fake transactions for each user for the past several months is initialized when the backend first starts up.
-The frontend allows an administrator to view and add transactions as well as view overall and monthly reward points earned by each user.
+The frontend allows an administrator to view and add transactions as well as view overall and monthly reward points earned by each user. This part of the project was initially derived from my personal react starter template: https://github.com/Mipke/react-starter
 
 The backend can be started like any other Spring Boot project. Inside of Intellij this means setting up a Spring Boot run configuration with `com.mipke.backend.BackendApplication` as the main class. Alternatively, the backend can be started by cd-ing into the `backend` directory to utilize the embedded gradle wrappers. Start the server by running `gradlew.bat bootRun` on Windows or `./gradlew bootRun` on Linux or Mac.
 
