@@ -1,14 +1,15 @@
-package com.mipke.backend.transactions
+package com.mipke.backend.rewardpoints
 
-import com.mipke.backend.transactions.model.TransactionEntity
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RestController
 
-class TransactionController(
-        private val transactionService: TransactionService
+@RestController
+class RewardPointsController(
+        private val rewardPointsService: RewardPointsService
 ) {
 
-    @GetMapping("/transactions")
-    fun getAllTransactions(): ResponseEntity<List<TransactionEntity>> =
-            ResponseEntity.ok(transactionService.getAllTransactions())
+    @GetMapping("/reward-points")
+    fun getAllTransactions(): ResponseEntity<Int> =
+            ResponseEntity.ok(rewardPointsService.getCurrentRewardPointCount())
 }

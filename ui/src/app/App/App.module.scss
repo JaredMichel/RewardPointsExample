@@ -1,0 +1,33 @@
+.app {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 48px;
+  margin-top: 24px;
+
+  .left, .right {
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+  }
+
+  .left {
+    justify-self: end;
+    align-items: flex-end;
+
+    h5, button {
+      margin-top: 24px;
+    }
+  }
+
+  .right {
+    justify-self: start;
+
+    .transactionTable {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      grid-column-gap: 18px;
+    }
+  }
+}

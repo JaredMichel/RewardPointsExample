@@ -1,0 +1,51 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;MODE=mysql;DB_CLOSE_ON_EXIT=FALSE;
+    username: sa
+    password:
+    platform: h2
+    initialization-mode: always
+
+  jpa:
+    show-sql: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+      default-schema: public
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        temp.use_jdbc_metadata_defaults: false
+
+  liquibase:
+    enabled: true
+    change-log: classpath:/liquibase/master.xml
+    default-schema: dbo
+    contexts: h2
+    parameters:
+      appSchema: dbo
+      appName: tangible-insight-api2
+
+  h2:
+    console:
+      enabled: true
+      path: /api/h2-console
+
+logging:
+  level:
+    root: info
+
+mipke:
+  errors:
+    webhook:
+      enabled: false
+tangibleinsight:
+  config:
+    cdn: http://localhost:8080
+  frontend:
+    vendorstylesheet: http://cdn.tangibleinsight.com/static/something.js
+    stylesheet: http://cdn.tangibleinsight.com/static/something.js
+    runtimejs: http://cdn.tangibleinsight.com/static/runtime.js
+    vendorjs: http://cdn.tangibleinsight.com/static/vendor.js
+    mainjs: http://cdn.tangibleinsight.com/static/main.js
